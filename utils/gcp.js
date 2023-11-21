@@ -1,13 +1,12 @@
 const  { Storage } = require ('@google-cloud/storage')
 
-require('dotenv').config()
+const config = require('../utils/config')
 
 const storage = new Storage({
-    keyFilename: process.env.GCP_PATH_KEY,
+    keyFilename: config.GCP_PATH_KEY,
 })
 
-const bucketName = process.env.GCP_BUCKET_NAME
-const bucket = storage.bucket(bucketName)
+const bucket = storage.bucket(config.GCP_BUCKET_NAME)
 
 const asyncListFiles = async ()=>{
     const files = await bucket.getFiles()
@@ -22,9 +21,8 @@ const asyncUploadFile = async(pathfile,filename)=>{
 }
 
 const asyncGetFile = async (id) =>{
-    return process.env.GCP_URI + id;
+    return config.GCP_URI + id;
 }
-
 
 module.exports={
     asyncListFiles,

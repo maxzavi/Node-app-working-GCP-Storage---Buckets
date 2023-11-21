@@ -4,7 +4,7 @@ curl --location 'http://localhost:3000' \
 --header 'Content-Type: application/json' \
 --data '{
     "pathfile": "/Users/maxzavaleta/Desktop/udemy/bienesraices/public/uploads",
-    "filename": "0.e8hlc4m503o1hdfrp335.jpg"
+    "filename": "0.013oi4a0uao1hdsq1ko3.jpg"
 }'
 ###
-curl --location 'http://localhost:3000/0.e8hlc4m503o1hdfrp335.jpg'
+curl --location 'http://localhost:3000/0.013oi4a0uao1hdsq1ko3.jpg'

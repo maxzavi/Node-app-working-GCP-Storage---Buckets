@@ -28,7 +28,6 @@ app.get('/:id',async(req,res)=>{
     res.redirect(result)
 })
 
-
 app.listen(port,()=>{
     console.log(`Listening in port: ${port}`);
     

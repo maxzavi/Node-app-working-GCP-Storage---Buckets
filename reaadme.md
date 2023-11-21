@@ -6,11 +6,28 @@ Create project:
 npm init -y
 ```
 
-By Development, add dependency **nodemon**
+## Nodemon
+
+By development, add dependency **nodemon**
 
 ```cmd
 npm i -D nodemon
 ```
+
+In **package.json** add script **dev**:
+```json
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+```
+
+Run in terminal:
+
+```cmd
+npm run dev
+```
+
+## Express
 
 Add dependency **express**
 
@@ -18,9 +35,9 @@ Add dependency **express**
 npm i express
 ```
 
-## dotenv
+## Dotenv
 
-Add dependency **dotenv**
+Add dependency **dotenv** by environment variables
 
 ```cmd
 npm i dotenv
@@ -33,6 +50,21 @@ GCP_BUCKET_NAME=demomzv
 GCP_PATH_KEY=./keys/gcp-key.json
 GCP_URI=https://storage.googleapis.com/demomzv/
 ``` 
+
+Add file **config.js** in folder **utils**:
+
+```js
+require('dotenv').config()
+module.exports = process.env
+```
+
+Import in files:
+
+```js
+const config = require('../utils/config')
+
+```
+## GCP Storage
 
 Add dependency **@google-cloud/storage**
 
