@@ -8,10 +8,13 @@ const storage = new Storage({
 
 const bucket = storage.bucket(config.GCP_BUCKET_NAME)
 
-const asyncListFiles = async ()=>{
+const asyncListFiles = async (fullUrl)=>{
     const files = await bucket.getFiles()
     const result = files[0].map (file=>{
-        return {name:file.name}
+        return {
+            name:file.name,
+            path:fullUrl+file.name
+        }
     })
     return result;
 }

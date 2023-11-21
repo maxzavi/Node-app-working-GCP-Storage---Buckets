@@ -10,15 +10,17 @@ app.use(bodyParser.json());
 
 //List bucket files
 app.get('/',async(req,res)=>{
-    const result = await asyncListFiles()
+    const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    const result = await asyncListFiles(fullUrl)
     res.json(result)
 })
 
 //Upload file
 app.post('/',async(req,res)=>{
+    const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     const {pathfile, filename} = req.body
     await asyncUploadFile(pathfile, filename)
-    res.send('Ok')
+    res.send({path:fullUrl+filename})
 })
 
 //Get File
